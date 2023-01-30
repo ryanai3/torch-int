@@ -127,6 +127,7 @@ ext_modules.append(
         include_dirs=[
             'torch_int/kernels/include',
             'submodules/cutlass/include',
+            'submodules/cutlass/tools/util/include',
         ],
         extra_link_args=['-lcublas_static', '-lcublasLt_static',
                          '-lculibos', '-lcudart', '-lcudart_static',
@@ -138,6 +139,7 @@ ext_modules.append(
 
 setup(
     name='torch_int',
+    version="0.0.1",
     ext_modules=ext_modules,
     cmdclass={
         'build_ext': BuildExtension.with_options(use_ninja=False)
